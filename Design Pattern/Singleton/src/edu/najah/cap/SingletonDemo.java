@@ -2,7 +2,6 @@ package edu.najah.cap;
 
 import java.util.ArrayList;
 
-import com.sun.tools.javac.util.List;
 
 public class SingletonDemo {
 
