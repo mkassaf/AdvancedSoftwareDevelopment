@@ -27,6 +27,8 @@ public class Connection {
 		
 	}
 
+	public int id;
+
 	public void send(String string) {
 		// TODO Auto-generated method stub
 		

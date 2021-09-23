@@ -22,13 +22,24 @@ public class SingletonDemo {
 		Connection telnetConnection = Connection.getInstance(Connection.TELNET); 
 		// will return the current TELNET connection 
 		Connection telnetConnection2 = Connection.getInstance(Connection.TELNET); 
+	
+		//Factory , Composite 
+		
+		telnetConnection.id = 5;
+		if(telnetConnection == telnetConnection2) {  // 70%
+			//true
+		}; // true
+		System.out.println(telnetConnection2.id);//5
+		
 		// will create a new object
 		Connection sshConnection = Connection.getInstance(Connection.SSH); 
-		
+		sshConnection.id = 6;
+		System.out.println(telnetConnection2.id);//5
+		System.out.println(sshConnection.id);//6
 		// will create a new object
 		Connection httpConnection = Connection.getInstance(Connection.HTTP); 
 		
-		// will throw an expectation telling the user he can’t create more than 3 connections!
+		// will throw an expectation telling the user he can’t create more than 3 connections! //80%
 		Connection scpConnection = Connection.getInstance(Connection.SCP); 
 		
 		// will return the current SSH connection
@@ -36,10 +47,13 @@ public class SingletonDemo {
 
 		// will delete the current TELNET connection and return true, 
 		//and it will return false if there is no TELNET connection at all. 
-		boolean isReleased = Connection.release(Connection.TELNET);
+		boolean isReleased = Connection.release(Connection.TELNET); // 90%
+		if(telnetConnection2 == null) {
+			//true
+		}
 
 		// will create a new FTP connection and return it.
-		Connection ftpConnection = Connection.getInstance(Connection.FTP); 
+		Connection ftpConnection = Connection.getInstance(Connection.FTP);  //100%
 
 		// return a list of current connections as Connection objects
 		ArrayList<String> currentConnections = Connection.getCurrentConnections(); 

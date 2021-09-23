@@ -1,19 +1,21 @@
 package edu.najah.cap.oc;
 
 public class TaxCalculator {
-	
-	public float CalculateTax(float amount,String country){
+	//Close for modification open for extension
+	public float calculateTax(float amount,String country){
 		float taxAmount = 0;
-        switch(country)
-        {
+        switch(country) {
             case "USA":
-                //calculate tax as per USA rules
+            	taxAmount = (float) (amount * 0.1);
                 break;
             case "UK":
-                //calculate tax as per UK rules
+            	taxAmount = (float) (amount * 0.4);
                 break;
             case "IN":
-                //calculate tax as per India rules
+            	taxAmount = (float) (amount * 0.2);
+                break;
+            case "PS":
+            	taxAmount = (float) (amount * 0.6);
                 break;
         }
         return taxAmount;
