@@ -6,7 +6,9 @@ public class SingleObject {
 	
 	public int id = 0;
 	private SingleObject() {
-		
+		//code 
+		//Connect ~1 min
+		//
 	}
 	public static SingleObject getInstance() {
 		if(instance == null) {
