@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="/Singleton"/>
+	<classpathentry kind="src" path="/Factory Method"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

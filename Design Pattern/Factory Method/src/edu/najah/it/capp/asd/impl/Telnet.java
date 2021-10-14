@@ -11,7 +11,7 @@ private static Protocol instance;
 		System.out.println("Creating a new Telnet insatnce");
 	}
 	
-	public static Protocol getInsatnce() {
+	protected static Protocol getInsatnce() {
 		if(instance == null) {
 			instance = new Telnet();
 		}

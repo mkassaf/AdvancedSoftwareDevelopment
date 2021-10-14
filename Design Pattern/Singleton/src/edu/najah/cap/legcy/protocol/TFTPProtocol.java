@@ -33,7 +33,7 @@ public class TFTPProtocol {
 	}
 	
 	public void sendMessage(String message) {
-		System.out.println("I am sending a " + message + " vi TFTP Protocol");
+		System.out.println("I am sending a " + message + " vi TFTP Protocol(Legcy)");
 		
 	}
 

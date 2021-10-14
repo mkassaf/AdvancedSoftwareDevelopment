@@ -1,6 +1,7 @@
 package edu.najah.it.capp.asd;
 
 import edu.najah.it.capp.asd.constants.ConnectionType;
+import edu.najah.it.capp.asd.impl.Ftp;
 import edu.najah.it.capp.asd.intf.Protocol;
 import edu.najah.it.capp.asd.service.Connection;
 
@@ -37,7 +38,27 @@ public class Demo {
 		
 		ftp = Connection.getInstance(ConnectionType.FTP);
 		ftp.send("Testing FTP");
+		Connection.release(ConnectionType.FTP);
 		
+		Protocol tftp = Connection.getInstance(ConnectionType.TFTP);
+		Protocol tftp2 = Connection.getInstance(ConnectionType.TFTP);
+		System.out.println(Connection.getCurrentConnections());
+		if(tftp == tftp2 ) {
+			System.out.println("Same object");
+		}
+		tftp.send("test the TFTP ");
+		tftp2.send("test the TFTP ");
+
+		ftp = Ftp.getInsatnce();
+		///Connection.release(ConnectionType.TFTP);
+		System.out.println(Connection.getCurrentConnections());//3
+		if(ftp == null) {
+			System.out.println("FTP is a null");
+		} else {
+			System.out.println("FTP is not a null");
+		}
+		ftp.send(" breaking the logic ");
+			
 		
 		
 	}

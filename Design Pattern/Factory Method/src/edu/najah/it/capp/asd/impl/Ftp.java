@@ -7,11 +7,11 @@ public class Ftp implements Protocol {
 	private static Protocol instance;
 	
 	
-	public Ftp() {
+	private Ftp() {
 		System.out.println("Creating a new FTP insatnce");
 	}
 	
-	public static Protocol getInsatnce() {
+	protected static Protocol getInsatnce() {
 		if(instance == null) {
 			instance = new Ftp();
 		}
