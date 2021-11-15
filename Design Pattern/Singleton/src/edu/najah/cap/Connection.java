@@ -18,6 +18,7 @@ public class Connection {
 	public static final String TELNET = "Telnet";
 	public static final String SCP = "Scp";
 	public static final String FTP = "Ftp";
+	private static final int MAX_NUMBER_OF_CONNECTIONS = 4;
 
 	// definition variable to store #connections that created
 	public static int numberConnections = 0;
@@ -33,14 +34,14 @@ public class Connection {
 	public static Connection CreateConnection(Connection connection, String protocol) {
 
 		if (connection == null) {
-			if (Connection.numberConnections < 3) {
+			if (Connection.numberConnections < MAX_NUMBER_OF_CONNECTIONS) {
 				connection = new Connection();
 				Connection.allConnections.add(protocol);
 				System.out.println("Create New Connection");
 				Connection.numberConnections++;
 
 			} else {
-				System.out.println("Sorry, You Can't Create More Than 3 Conncetions!");
+				System.out.println("Sorry, You Can't Create More Than " + MAX_NUMBER_OF_CONNECTIONS +" Conncetions!");
 			}
 
 		} else
@@ -54,8 +55,6 @@ public class Connection {
 		if (protocol.equalsIgnoreCase(Connection.HTTP)) {
 			if (httpConnection != null) {
 				httpConnection = null;
-				Connection.numberConnections--;
-				Connection.allConnections.remove(protocol);
 				System.out.println("This Connection Has Been Deleted");
 				return true;
 			} else {
@@ -66,8 +65,6 @@ public class Connection {
 		} else if (protocol.equalsIgnoreCase(Connection.SSH)) {
 			if (sshConnection != null) {
 				sshConnection = null;
-				Connection.numberConnections--;
-				Connection.allConnections.remove(protocol);
 				System.out.println("This Connection Has Been Deleted");
 				return true;
 			} else {
@@ -78,8 +75,6 @@ public class Connection {
 		} else if (protocol.equalsIgnoreCase(Connection.TELNET)) {
 			if (telnetConnection != null) {
 				telnetConnection = null;
-				Connection.numberConnections--;
-				Connection.allConnections.remove(protocol);
 				System.out.println("This Connection Has Been Deleted");
 				return true;
 			} else {
@@ -90,8 +85,6 @@ public class Connection {
 		} else if (protocol.equalsIgnoreCase(Connection.SCP)) {
 			if (scpConnection != null) {
 				scpConnection = null;
-				Connection.numberConnections--;
-				Connection.allConnections.remove(protocol);
 				System.out.println("This Connection Has Been Deleted");
 				return true;
 			} else {
@@ -102,8 +95,6 @@ public class Connection {
 		} else if (protocol.equalsIgnoreCase(Connection.FTP)) {
 			if (ftpConnection != null) {
 				ftpConnection = null;
-				Connection.numberConnections--;
-				Connection.allConnections.remove(protocol);
 				System.out.println("This Connection Has Been Deleted");
 				return true;
 			} else {
@@ -112,8 +103,18 @@ public class Connection {
 			}
 
 		}
+		removeProtcole(protocol);
 
 		return false;
+	}
+
+	private static void removeProtcole(String protocol) {
+		
+		if(Connection.allConnections.contains(protocol)){
+			Connection.numberConnections--;
+			Connection.allConnections.remove(protocol);
+		}
+		
 	}
 
 	// function to get connection as the protocol which in the parameter
@@ -144,7 +145,7 @@ public class Connection {
 		return Connection.allConnections;
 
 	}
-
+	
 	// function to send message to the user as the object which call the function
 	public void send(String message) {
 
@@ -209,8 +210,7 @@ public class Connection {
 		} else if (this == scpConnection) {
 			if (scpConnection != null) {
 				scpConnection = null;
-				Connection.numberConnections--;
-				Connection.allConnections.remove(Connection.SCP);
+				removeProtcole(Connection.SCP);
 				System.out.println("This Connection Has Been Deleted");
 				return true;
 			} else {
@@ -218,7 +218,7 @@ public class Connection {
 				return false;
 			}
 
-		} else if (this == ftpConnection) {
+		}/* else if (this == ftpConnection) {
 			if (ftpConnection != null) {
 				ftpConnection = null;
 				Connection.numberConnections--;
@@ -230,7 +230,7 @@ public class Connection {
 				return false;
 			}
 
-		}
+		}*/
 
 		return false;
 	}

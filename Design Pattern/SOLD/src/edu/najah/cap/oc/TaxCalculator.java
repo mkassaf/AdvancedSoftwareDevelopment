@@ -14,9 +14,7 @@ public class TaxCalculator {
             case "IN":
             	taxAmount = (float) (amount * 0.2);
                 break;
-            case "PS":
-            	taxAmount = (float) (amount * 0.6);
-                break;
+          
         }
         return taxAmount;
     }

@@ -11,6 +11,7 @@ public class NorthwindEntities {
 		return null;
 	}
 	
+	@Deprecated
 	public Customer find() {
 		// TODO Auto-generated method stub
 		return null;

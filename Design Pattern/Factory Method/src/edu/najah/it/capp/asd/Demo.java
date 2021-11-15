@@ -49,7 +49,7 @@ public class Demo {
 		tftp.send("test the TFTP ");
 		tftp2.send("test the TFTP ");
 
-		ftp = Ftp.getInsatnce();
+		//ftp = Ftp.getInsatnce();
 		///Connection.release(ConnectionType.TFTP);
 		System.out.println(Connection.getCurrentConnections());//3
 		if(ftp == null) {

@@ -6,7 +6,7 @@ public class JobDemo {
 		//Want to create a button that takes an object and run an action
 		
 
-		Button button = new Button(new Runner() {
+		/*Button button = new Button(new Runner() {
 			
 			@Override
 			public void run() {
@@ -19,6 +19,7 @@ public class JobDemo {
 		
 		Runner runner = new Runner2();
 		Button button2 = new Button(runner);
+		*/
 
 	}
 
