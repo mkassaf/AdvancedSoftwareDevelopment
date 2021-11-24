@@ -6,10 +6,19 @@ import edu.najah.it.capp.asd.impl.Ftp;
 import edu.najah.it.capp.asd.intf.Protocol;
 import edu.najah.it.capp.asd.service.Connection;
 import edu.najah.it.capp.exception.ProtocolException;
+import edu.najah.it.capp.logger.Logger;
+
+
+
 
 public class Demo {
 
 	public static void main(String[] args) {
+	
+		Logger.getInstance().logInfo("This is a info message");
+		Logger.getInstance().logDebug("This is a debug message");
+		Logger.getInstance().logWarning("This is a warning message");
+		Logger.getInstance().logError("This is a error message");
 		
 		
 		Protocol ssh = Connection.getInstance(ConnectionType.SSH);
@@ -62,7 +71,6 @@ public class Demo {
 		}
 		ftp.send(" breaking the logic ");
 			
-		
 		
 	}
 
