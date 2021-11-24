@@ -4,33 +4,43 @@ import java.util.Iterator;
 
 public class Email {
 	
+	private static final int MIN_LENGHT_OF_EMAIL = 5;
+	private static final int STRING_NOT_FOUNT = -1;
+	private static final String USERNAME_EMAIL_SEP = "@";
+	private static final int INDEX_OF_USERNAME = 0;
+	private static final int INDEX_OF_DOMAIN = 1;
 	//Email string
-	public String str;
+	private String email;
 	
 	public Email(String string){
-		this.str = string;
+		this.email = string;
 	}
 	
-	public boolean EmailCheck() {
-		if(this.str != null || this.str != "") {
-			//The email should contain at least 4 chars which are username, @, domain, dot and email prefex like com 
-			if(this.str.length() < 5) {
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public boolean checkEmail() {
+		if(this.email != null || this.email != "") {
+			if(this.email.length() < MIN_LENGHT_OF_EMAIL) {
 				return false;
 			}
-			if(this.str.indexOf("@") == -1) {
+			if(this.email.indexOf(USERNAME_EMAIL_SEP) == STRING_NOT_FOUNT) {
 				return false;
 			}
-			String[] array = str.split("@");//test@
-			String string1 = array[0];// is test which is the username
-			String string2 = array[1];// najah.edu which is the domain
+			String[] emailParts = email.split(USERNAME_EMAIL_SEP);
+			String username = emailParts[INDEX_OF_USERNAME];
+			String domain = emailParts[INDEX_OF_DOMAIN];
 			
-			//First char of username should be  letter
-			if(!(string1.charAt(0) >= 'A' && string1.charAt(0) <= 'Z' ) ||
-					!(string1.charAt(0) >= 'a' && string1.charAt(0) <= 'z' )) {
+			if(!isStartWithLetter(domain) && !isStartWithLetter(username)) {
 				return false;
 			}
 			//The username should start with letter and should contain letter, number or _ only.
-			for (int i = 1; i < string1.length(); i++) {
+			for (int i = 1; i < username.length(); i++) {
 				if(!(string1.charAt(i) >= 'A' && string1.charAt(i) <= 'Z' ) ||
 						!(string1.charAt(i) >= 'a' && string1.charAt(i) <= 'z' ) ||
 						!(string1.charAt(i) >= '0' && string1.charAt(i) <= '9' ) || 
@@ -80,6 +90,18 @@ public class Email {
 			return false;
 		}
 		
+	}
+
+	private boolean isStartWithLetter(String username) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private boolean isStartWithletter(String word) {
+		if((word.charAt(0) >= 'A' && word.charAt(0) <= 'Z' )) {
+			return true;
+		}
+		return false;
 	}
 
 }
