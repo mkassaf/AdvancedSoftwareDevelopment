@@ -3,6 +3,9 @@ package edu.najah.cap.data;
 import edu.najah.cap.activity.IUserActivityService;
 import edu.najah.cap.activity.UserActivity;
 import edu.najah.cap.activity.UserActivityService;
+import edu.najah.cap.exceptions.BadRequestException;
+import edu.najah.cap.exceptions.NotFoundException;
+import edu.najah.cap.exceptions.SystemBusyException;
 import edu.najah.cap.iam.IUserService;
 import edu.najah.cap.iam.UserProfile;
 import edu.najah.cap.iam.UserService;
@@ -15,6 +18,7 @@ import edu.najah.cap.posts.Post;
 import edu.najah.cap.posts.PostService;
 
 import java.time.Instant;
+import java.util.Scanner;
 
 public class Application {
 
@@ -23,14 +27,19 @@ public class Application {
     private static final IUserService userService = new UserService();
     private static final IPostService postService = new PostService();
 
+    private static String loginUserName;
 
     public static void main(String[] args) {
         generateRandomData();
         Instant start = Instant.now();
         System.out.println("Application Started: " + start);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your username: ");
+        System.out.println("Note: You can use any of the following usernames: user0, user1, user2, user3, .... user99");
+        String userName = scanner.nextLine();
+        setLoginUserName(userName);
         //TODO Your application starts here. Do not Change the existing code
-
-
 
 
 
@@ -101,5 +110,13 @@ public class Application {
         } else {
             return UserType.PREMIUM_USER;
         }
+    }
+
+    public static String getLoginUserName() {
+        return loginUserName;
+    }
+
+    private static void setLoginUserName(String loginUserName) {
+        Application.loginUserName = loginUserName;
     }
 }

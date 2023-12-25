@@ -1,5 +1,10 @@
 package edu.najah.cap.payment;
 
+import edu.najah.cap.exceptions.BadRequestException;
+import edu.najah.cap.exceptions.NotFoundException;
+import edu.najah.cap.exceptions.SystemBusyException;
+import edu.najah.cap.exceptions.Util;
+
 import java.util.*;
 
 public class PaymentService implements IPayment {
@@ -20,11 +25,15 @@ public class PaymentService implements IPayment {
     }
 
     @Override
-    public void removeTransaction(String userName, String id) {
+    public void removeTransaction(String userName, String id) throws SystemBusyException, BadRequestException, NotFoundException {
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+        Util.validateUserName(userName);
+        if (!transactionMap.containsKey(userName)) {
+            throw new NotFoundException("User does not exist");
         }
         Iterator<Transaction> iterator = transactionMap.get(userName).iterator();
         while (iterator.hasNext()) {
@@ -37,7 +46,11 @@ public class PaymentService implements IPayment {
     }
 
     @Override
-    public List<Transaction> getTransactions(String userName) {
+    public List<Transaction> getTransactions(String userName) throws SystemBusyException, BadRequestException, NotFoundException {
+        Util.validateUserName(userName);
+        if (!transactionMap.containsKey(userName)) {
+            throw new NotFoundException("User does not exist");
+        }
         return transactionMap.get(userName);
     }
 
