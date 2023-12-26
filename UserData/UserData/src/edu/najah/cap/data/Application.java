@@ -72,7 +72,13 @@ public class Application {
 
     private static void generatePayment(int i) {
         for (int j = 0; j < 100; j++) {
-            paymentService.pay(new Transaction("user" + i, i * j, "description" + i + "." + j));
+            try {
+                if (userService.getUser("user" + i).getUserType() == UserType.PREMIUM_USER) {
+                    paymentService.pay(new Transaction("user" + i, i * j, "description" + i + "." + j));
+                }
+            } catch (Exception e) {
+                System.err.println("Error while generating post for user" + i);
+            }
         }
     }
 
