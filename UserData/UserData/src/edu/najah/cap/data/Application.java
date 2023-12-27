@@ -64,8 +64,16 @@ public class Application {
         System.out.println("Data Generation Completed");
     }
 
+
     private static void generateActivity(int i) {
         for (int j = 0; j < 100; j++) {
+            try {
+                if(UserType.NEW_USER.equals(userService.getUser("user" + i).getUserType())) {
+                    continue;
+                }
+            } catch (Exception e) {
+                System.err.println("Error while generating activity for user" + i);
+            }
             userActivityService.addUserActivity(new UserActivity("user" + i, "activity" + i + "." + j, Instant.now().toString()));
         }
     }
