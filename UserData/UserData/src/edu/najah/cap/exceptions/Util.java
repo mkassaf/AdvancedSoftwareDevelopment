@@ -5,8 +5,11 @@ import java.time.Instant;
 public class Util {
     private Util() {
     }
-
+    private static boolean skipValidation = false;
     public static void validateUserName(String userName) throws SystemBusyException, BadRequestException {
+        if (skipValidation) {
+            return;
+        }
         if (userName == null || userName.isEmpty()) {
             throw new BadRequestException("User name is required");
         }
@@ -20,5 +23,8 @@ public class Util {
             throw new SystemBusyException("Something went wrong");
         }
 
+    }
+    public static void setSkipValidation(boolean skipValidation) {
+        Util.skipValidation = skipValidation;
     }
 }
