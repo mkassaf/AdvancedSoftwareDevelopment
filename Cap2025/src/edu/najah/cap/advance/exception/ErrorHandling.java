@@ -1,4 +1,4 @@
-package edu.najah.cap.advance;
+package edu.najah.cap.advance.exception;
 
 import edu.najah.cap.advance.oop.MyCustomException;
 
@@ -32,6 +32,8 @@ public class ErrorHandling {
                 System.out.println("Runtime :: " + e.getMessage());
             } catch (Exception e) {
                 throw e;
+            } finally {
+                System.out.println("Closing program");
             }
         }
     }
