@@ -29,7 +29,7 @@ public class NewCar extends  Car {
 
     @Override
     public void start() {
-        start();
+        super.start();
         System.out.println("Check 4 after start");
     }
 
