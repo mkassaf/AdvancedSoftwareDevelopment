@@ -6,16 +6,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        Car car = new Car(2020, "red");//we create object/instance
 
-        System.out.println(car.getColor());
-
-        car.setColor("red");
-
-        car.setModel(-10);
-        System.out.println(car.getModel());
-
-        car.stop();
 
         //car.setId(1111);
 
@@ -29,8 +20,8 @@ public class App {
         newCar.start();
         newCar.stop();
 
-        Car car2 = new NewCar();
+        Car car2 = new NewCar(44);
 
-        System.out.println(((NewCar)car2).getId());
+        System.out.println(car2.getId());
     }
 }

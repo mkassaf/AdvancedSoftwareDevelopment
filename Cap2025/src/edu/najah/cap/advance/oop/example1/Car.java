@@ -1,6 +1,6 @@
 package edu.najah.cap.advance.oop.example1;
 
-public class Car {
+public abstract class Car {
     //Properties / attributes
 
     public int model;
@@ -56,4 +56,6 @@ public class Car {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public abstract int getId();
 }

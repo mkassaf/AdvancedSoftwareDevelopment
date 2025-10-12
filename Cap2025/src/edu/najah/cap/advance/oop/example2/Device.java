@@ -1,6 +1,6 @@
 package edu.najah.cap.advance.oop.example2;
 
-public class Device {
+public abstract class Device {
     //Attributes or properties
     private String color;
     private String model;
@@ -46,7 +46,5 @@ public class Device {
         this.model = model;
     }
 
-    public int getWeight() {
-        throw  new UnsupportedOperationException("Not supported yet.");
-    }
+    public abstract int getWeight();
 }

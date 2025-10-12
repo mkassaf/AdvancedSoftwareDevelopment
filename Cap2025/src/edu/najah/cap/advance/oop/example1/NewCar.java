@@ -1,6 +1,6 @@
 package edu.najah.cap.advance.oop.example1;
 
-public class NewCar extends  Car {
+public final class NewCar extends  Car {
 
     int id;
 
@@ -19,6 +19,7 @@ public class NewCar extends  Car {
 
     }
 
+    @Override
     public int getId() {
         return id;
     }

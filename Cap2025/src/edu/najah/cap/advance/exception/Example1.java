@@ -1,5 +1,6 @@
 package edu.najah.cap.advance.exception;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class Example1 {
@@ -10,9 +11,9 @@ public class Example1 {
             connection.connect();
             System.out.println("Step 1: " + connection);
         } catch (Exception e) {
-            System.err.println("Exception step");
+            System.err.println("Exception step " + (new Date()).getTime());
         } finally {
-            System.out.println("Final Step");
+            System.out.println("Final Step " + (new Date()).getTime());
             try {
                 connection.close();
             } catch (Exception e) {
@@ -25,7 +26,7 @@ public class Example1 {
         try(ClosableConnection connection1 = new ClosableConnection()) {
             connection1.connect();
         } catch (Exception e) {
-            System.err.println("Exception step");
+            System.err.println("Exception step in final");
         }
 
     }
@@ -35,6 +36,7 @@ public class Example1 {
 
         public void connect() {
             System.out.println("Connecting connection");
+            throw new RuntimeException();
         }
 
         @Override
