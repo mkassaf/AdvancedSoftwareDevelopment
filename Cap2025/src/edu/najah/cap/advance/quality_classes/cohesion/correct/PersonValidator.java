@@ -1,6 +1,6 @@
 package edu.najah.cap.advance.quality_classes.cohesion.correct;
 
-s
+
 public class PersonValidator {
 
 
