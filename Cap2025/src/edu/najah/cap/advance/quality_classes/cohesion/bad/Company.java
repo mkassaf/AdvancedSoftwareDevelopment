@@ -1,17 +1,17 @@
 package edu.najah.cap.advance.quality_classes.cohesion.bad;
 
-public class Person {
+public class Company {
     private int id;
     private String name;
     private String surname;
-    private String role;
+    private String stdId;
     private String databaseUrl;
 
-    public Person(int id, String name, String surname, String role, String databaseUrl) {
+    public Company(int id, String name, String surname, String stdId, String databaseUrl) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.role = role;
+        this.stdId = stdId;
         this.databaseUrl = databaseUrl;
     }
 
@@ -39,15 +39,7 @@ public class Person {
         this.surname = surname;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public void verifyPerson(Person person) {
+    public void verifyPerson(Company person) {
         if(person.name == null || person.name.isBlank())
             throw new IllegalArgumentException();
 
@@ -59,7 +51,7 @@ public class Person {
     public void connectDatabaseUrl() {
         System.out.println("Connecting to database..." + databaseUrl);
     }
-    public void addPersonToDB(Person person) {
+    public void addCompanyToDB(Company person) {
         verifyPerson(person);
         System.out.println("Adding person to database");
     }

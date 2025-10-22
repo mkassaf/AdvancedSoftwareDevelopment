@@ -8,5 +8,8 @@ public class PersonValidator {
         if(person.getName() == null || person.getName().isBlank())
             throw new IllegalArgumentException();
 
+        if (person.getSurname() == null || person.getSurname().isBlank())
+            throw new IllegalArgumentException();
+
     }
 }

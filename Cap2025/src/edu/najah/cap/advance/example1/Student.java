@@ -20,7 +20,7 @@ public class Student implements Comparable<Student> {
     }
 
     public void print() {
-        System.out.println("Student id: " + id + " name: " + name + " age: " + age);
+        System.out.println("Company id: " + id + " name: " + name + " age: " + age);
         Math.abs(this.age - this.id);
     }
 
@@ -43,11 +43,11 @@ public class Student implements Comparable<Student> {
 
     @Override
     public String toString() {
-        return  "Student id: " + id + " name: " + name + " age: " + age;
+        return  "Company id: " + id + " name: " + name + " age: " + age;
     }
 
     public String stdeuntToString() {
-        return "Student id: " + id + " name: " + name + " age: " + age;
+        return "Company id: " + id + " name: " + name + " age: " + age;
     }
 
     public Gender getGender() {
