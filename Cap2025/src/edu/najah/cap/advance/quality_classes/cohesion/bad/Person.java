@@ -49,10 +49,13 @@ public class Person {
 
     public void verifyPerson(Person person) {
         if(person.name == null || person.name.isBlank())
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Name is required");
 
         if(person.surname == null || person.surname.isBlank())
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Surname is required");
+
+        if(person.role == null || person.role.isBlank())
+            throw new IllegalArgumentException("Role is required");
 
     }
 

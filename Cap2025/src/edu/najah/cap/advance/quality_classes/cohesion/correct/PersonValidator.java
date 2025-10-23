@@ -1,7 +1,7 @@
 package edu.najah.cap.advance.quality_classes.cohesion.correct;
 
 
-public class PersonValidator {
+public class PersonValidator implements Validator {
 
 
     public void verifyPerson(Person person) {
