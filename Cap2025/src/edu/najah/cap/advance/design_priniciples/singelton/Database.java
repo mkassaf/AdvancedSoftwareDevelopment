@@ -10,13 +10,15 @@ public class Database {
     private static int notInnerNullCounter = 0;
     private static int notOuterNullCounter = 0;
 
+    private int anyCounter;
+
 
     private Database() {
         System.out.println("Should be called only once!!");
     }
 
     public static Database getInstance() {
-        counter++;//2460 threads tried to update this counter at the same time
+        counter++;//896 threads tried to update this counter at the same time
         if (instance == null) {//7 threads read the instance = null at the same time
             conflictCounter++;//in parallel 7 6 5
             synchronized (Database.class) {
