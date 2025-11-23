@@ -1,4 +1,4 @@
-package edu.najah.cap.advance.project1.model;
+package edu.najah.cap.advance.assignments.assignment1.model;
 
 import java.util.*;
 

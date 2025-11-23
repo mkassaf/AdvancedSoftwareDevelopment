@@ -1,6 +1,6 @@
-package edu.najah.cap.advance.project1.job;
+package edu.najah.cap.advance.assignments.assignment1.job;
 
-import edu.najah.cap.advance.project1.model.User;
+import edu.najah.cap.advance.assignments.assignment1.model.User;
 
 public class Job {
     private String id;

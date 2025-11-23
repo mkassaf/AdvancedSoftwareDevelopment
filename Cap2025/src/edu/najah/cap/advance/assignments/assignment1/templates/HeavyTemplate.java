@@ -1,6 +1,6 @@
-package edu.najah.cap.advance.project1.templates;
+package edu.najah.cap.advance.assignments.assignment1.templates;
 
-import edu.najah.cap.advance.project1.job.Job;
+import edu.najah.cap.advance.assignments.assignment1.job.Job;
 
 /*
  * Naive representation of a heavy template. It includes a method createJobInstance()

@@ -1,10 +1,10 @@
-package edu.najah.cap.advance.project1;
+package edu.najah.cap.advance.assignments.assignment1;
 
-import edu.najah.cap.advance.project1.connections.ConnectionManager;
-import edu.najah.cap.advance.project1.executor.JobExecutor;
-import edu.najah.cap.advance.project1.job.Job;
-import edu.najah.cap.advance.project1.model.User;
-import edu.najah.cap.advance.project1.templates.TemplateManager;
+import edu.najah.cap.advance.assignments.assignment1.connections.ConnectionManager;
+import edu.najah.cap.advance.assignments.assignment1.executor.JobExecutor;
+import edu.najah.cap.advance.assignments.assignment1.job.Job;
+import edu.najah.cap.advance.assignments.assignment1.model.User;
+import edu.najah.cap.advance.assignments.assignment1.templates.TemplateManager;
 
 import java.util.Arrays;
 
