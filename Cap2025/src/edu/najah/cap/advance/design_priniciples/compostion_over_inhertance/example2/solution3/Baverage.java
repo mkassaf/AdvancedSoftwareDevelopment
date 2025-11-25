@@ -5,12 +5,14 @@ public abstract class Baverage {
     private boolean withHoney;
     private boolean withMocha;
     private boolean withSugger;
+    private boolean withDoubleMilk;
 
-    public Baverage(boolean withMilk, boolean withHoney, boolean withMocha, boolean withSugger) {
+    public Baverage(boolean withMilk, boolean withHoney, boolean withMocha, boolean withSugger, boolean withDoubleMilk) {
         this.withMilk = withMilk;
         this.withHoney = withHoney;
         this.withMocha = withMocha;
         this.withSugger = withSugger;
+        this.withDoubleMilk = withDoubleMilk;
     }
 
 
@@ -27,6 +29,9 @@ public abstract class Baverage {
         }
         if (withSugger) {
             total += 1;
+        }
+        if(withDoubleMilk) {
+            total+= 2;
         }
         return total;
     }
